@@ -26,7 +26,7 @@ export default function App() {
         <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Detalhes" component={DetalhesScreen}/>
-            <Stack.Screen name="Novo Agendamento" component={NovoAgendamentoScreen} />
+            <Stack.Screen name="NovoAgendamento" component={NovoAgendamentoScreen} />
         </Stack.Navigator>
     </NavigationContainer>
 </SQLiteProvider>
