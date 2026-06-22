@@ -26,4 +26,4 @@ Permite registrar agendamentos de clientes com nome, telefone, data, horário, t
 - expo-image-picker
 
 ## APK
-[Link para download]
+https://expo.dev/accounts/maylla0407/projects/agendamento/builds/03fbf9eb-36ec-48fd-a214-1d8b7aa53bf9
