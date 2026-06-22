@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "agendamento",
+    "name": "Maylla Braids",
     "slug": "agendamento",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,16 +10,26 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#F5ECD7"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mayllabraids.agendamento",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Usamos a câmera para registrar fotos do cabelo do cliente."
+      }
     },
     "android": {
+      "package": "com.mayllabraids.agendamento",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#F5ECD7"
       },
+      "permissions": [
+        "CAMERA"
+      ],
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
@@ -28,6 +38,11 @@
     },
     "plugins": [
       "expo-sqlite"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "cd35c4b8-094e-4338-ac3c-a8d010f5efa0"
+      }
+    }
   }
 }
