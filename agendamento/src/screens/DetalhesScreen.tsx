@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { View, Text, Image, StyleSheet, Alert } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { useFocusEffect } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
 import { useSQLiteContext } from 'expo-sqlite';
-import { excluirAgendamento } from '../repositories/agendamentoRepository';
+import { excluirAgendamento, buscarAgendamentoPorId } from '../repositories/agendamentoRepository';
 import BotaoPrimario from '../components/BotaoPrimario';
+import { Agendamento } from '../types/agendamento';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Detalhes'>;
 
 export default function DetalhesScreen({ navigation, route }: Props) {
-  const { agendamento } = route.params;
+  const { agendamento: agendamentoInicial } = route.params;
   const db = useSQLiteContext();
+  const [agendamento, setAgendamento] = useState<Agendamento>(agendamentoInicial);
+
+  useFocusEffect(
+    useCallback(() => {
+      async function recarregar() {
+        const atualizado = await buscarAgendamentoPorId(db, agendamentoInicial.id);
+        if (atualizado) setAgendamento(atualizado);
+      }
+      recarregar();
+    }, [])
+  );
 
   async function handleExcluir() {
     Alert.alert(
@@ -52,6 +65,7 @@ export default function DetalhesScreen({ navigation, route }: Props) {
         <Text style={styles.valor}>{agendamento.tipo_tranca}</Text>
       </View>
 
+      <BotaoPrimario texto="Editar" onPress={() => navigation.navigate('EditarAgendamento', { agendamento })} />
       <BotaoPrimario texto="Excluir Agendamento" onPress={handleExcluir} />
     </View>
   );

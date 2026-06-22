@@ -8,11 +8,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // para garantir que os gestos funcionem corretamente na navegação
 import 'react-native-gesture-handler';
 import { Agendamento } from "./src/types/agendamento";
+import EditarAgendamentoScreen from "./src/screens/EditarAgendamentoScreen";
 
 export type RootStackParamList = {
     Home: undefined;
     NovoAgendamento: undefined;
     Detalhes: { agendamento: Agendamento }; 
+    EditarAgendamento: { agendamento: Agendamento}
     // vai receber o agendamento como parâmetro
 };
 // navegar para uma nova tela ela é "empilhada" 
@@ -25,8 +27,10 @@ export default function App() {
     <NavigationContainer>
         <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="EditarAgendamento" component={EditarAgendamentoScreen} />
             <Stack.Screen name="Detalhes" component={DetalhesScreen}/>
             <Stack.Screen name="NovoAgendamento" component={NovoAgendamentoScreen} />
+            
         </Stack.Navigator>
     </NavigationContainer>
 </SQLiteProvider>

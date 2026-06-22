@@ -29,6 +29,13 @@ export async function excluirAgendamento(db: SQLiteDatabase,
     await db.runAsync('DELETE FROM agendamentos WHERE id = ?;', [id]) 
 }
 
+export async function buscarAgendamentoPorId(db: SQLiteDatabase, id: number): Promise<Agendamento | null> {
+    const resultado = await db.getFirstAsync<Agendamento>(
+        'SELECT * FROM agendamentos WHERE id = ?;', [id]
+    );
+    return resultado ?? null;
+}
+
 export async function atualizarAgendamento(db: SQLiteDatabase, 
     id: number, agendamento: NovoAgendamento): Promise<void>
     {
@@ -45,3 +52,4 @@ export async function atualizarAgendamento(db: SQLiteDatabase,
             ]
         )
 }
+
