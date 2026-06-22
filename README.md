@@ -1,7 +1,12 @@
 # Maylla Braids 💆‍♀️✂️
 
 Aplicativo de agendamento para serviços de tranças.
-Feito por Maylla Rieny Oliveira Nascimento
+
+## Integrantes
+- Maylla Rieny Oliveira Nascimento
+
+## Contexto
+Projeto desenvolvido para a disciplina de Desenvolvimento e Aplicações para Dispositivos Móveis.
 
 ## Objetivo
 Permite registrar agendamentos de clientes com nome, telefone, data, horário, tipo de trança e foto do cabelo.
@@ -19,3 +24,6 @@ Permite registrar agendamentos de clientes com nome, telefone, data, horário, t
 - SQLite (expo-sqlite)
 - React Navigation
 - expo-image-picker
+
+## APK
+[Link para download]
